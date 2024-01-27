@@ -17,7 +17,7 @@ const LoginValidator={
         }
       },
 
-      chngeRole : {
+      changeRole : {
         body: {
           email: Joi.string().required().email(),
           role: Joi.string().valid("user","admin").required(),

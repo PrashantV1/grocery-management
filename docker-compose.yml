@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: grocery_db
+    ports:
+      - "5432:5432"
+
+  grocery-booking-api:
+    image: prashantv1/grocery-booking-api
+    depends_on:
+      - postgres
+    environment:
+      PGUSER: postgres
+      PGHOST: postgres
+      PGDATABASE: grocery_db
+      PGPASSWORD: password
+      PGPORT: 5432
